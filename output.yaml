@@ -1,0 +1,366 @@
+Preparing to run Artifactory in Docker
+Running as uid=1030(artifactory) gid=1030(artifactory) groups=1030(artifactory)
+Dockerfile for this image can found inside the container.
+To view the Dockerfile: 'cat /docker/artifactory-pro/Dockerfile.artifactory'.
+Resolved shared.database.type (postgresql) from /opt/jfrog/artifactory/var/etc/system.yaml
+Resolved shared.database.url (jdbc:postgresql://artifactory-postgresql:5432/artifactory) from /opt/jfrog/artifactory/var/etc/system.yaml
+Waiting for DB postgresql to be ready on artifactory-postgresql/5432 for 30 seconds
+Copying Artifactory bootstrap files
+'/artifactory_bootstrap/info/installer-info.json' -> '/opt/jfrog/artifactory/var/etc/artifactory/info/installer-info.json'
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved artifactory.tomcat.connector.maxThreads (200) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved access.tomcat.connector.maxThreads (300) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved artifactory.tomcat.connector.extraConfig (acceptCount="100") from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved access.tomcat.connector.extraConfig (acceptCount="100") from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.extraJavaOpts (-Dartifactory.access.client.max.connections=300 -Dartifactory.async.corePoolSize=8) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.extraJavaOpts (-Dartifactory.access.client.max.connections=300 -Dartifactory.async.corePoolSize=8) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.database.type (postgresql) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.database.url (jdbc:postgresql://artifactory-postgresql:5432/artifactory) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved JF_SHARED_DATABASE_PASSWORD (__sensitive_key_hidden___) from environment variable
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved artifactory.database.maxOpenConnections (300) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved access.database.maxOpenConnections (300) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:1432       ] [main] - Checking open files and processes limits
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:1435       ] [main] - Current max open files is 1048576
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:1446       ] [main] - Current max open processes is unlimited
+userYaml decode failed at node .shared.database
+yaml validation failed
+2020-12-07T15:25:41.000Z [shell] [1;31m[WARN ][0m [] [installerCommon.sh:706        ] [main] - System.yaml validation failed
+
+Database connection successful
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:1513       ] [main] - Testing directory /opt/jfrog/artifactory/var has read/write permissions for user id 1030
+2020-12-07T15:25:41.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:1528       ] [main] - Permissions for /opt/jfrog/artifactory/var are good
+2020-12-07T15:25:42.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:3281       ] [main] - Setting JF_SHARED_NODE_ID to artifactory-artifactory-0
+2020-12-07T15:25:42.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:3281       ] [main] - Setting JF_SHARED_NODE_IP to 100.96.1.132
+2020-12-07T15:25:42.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:3281       ] [main] - Setting JF_SHARED_NODE_NAME to artifactory-artifactory-0
+2020-12-07T15:25:42.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.extraJavaOpts (-Dartifactory.access.client.max.connections=300 -Dartifactory.async.corePoolSize=8) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:42.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:112      ] [main] - Final command: -server -Xms512m -Xmx2g -Xss256k -XX:+UseG1GC -XX:OnOutOfMemoryError="kill -9 %p" --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED -Dfile.encoding=UTF8 -Djruby.compile.invokedynamic=false -Djruby.bytecode.version=1.8 -Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true -Djava.security.egd=file:/dev/./urandom -Dartdist=docker -Djf.product.home=/opt/jfrog/artifactory -Dartifactory.access.client.max.connections=300 -Dartifactory.async.corePoolSize=8
+chown: /opt/jfrog/artifactory: Operation not permitted
+2020-12-07T15:25:42.000Z [shell] [1;31m[WARN ][0m [] [installerCommon.sh:706        ] [main] - Could not set owner of [/opt/jfrog/artifactory] to [artifactory:artifactory]
+chown: /opt/jfrog/artifactory/var: Operation not permitted
+2020-12-07T15:25:42.000Z [shell] [1;31m[WARN ][0m [] [installerCommon.sh:706        ] [main] - Could not set owner of [/opt/jfrog/artifactory/var] to [artifactory:artifactory]
+crontab: must be suid to work properly
+crontab: must be suid to work properly
+2020-12-07T15:25:43.000Z [shell] [1;31m[WARN ][0m [] [installerCommon.sh:706        ] [main] - Could not configure logrotate. Please configure log rotation of the file: [/opt/jfrog/artifactory/var/log/console.log] manually
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:75       ] [main] - Bootstrap joinKey found in [/opt/jfrog/artifactory/var/bootstrap/access/etc/security/join.key:]. Deleting original
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:149      ] [main] - Saving /opt/jfrog/artifactory/app/artifactory/tomcat/conf/server.xml as /opt/jfrog/artifactory/app/artifactory/tomcat/conf/server.xml.orig
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:157      ] [main] - Using Tomcat template to generate : /opt/jfrog/artifactory/app/artifactory/tomcat/conf/server.xml
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:797      ] [main] - Resolved ${artifactory.port||8081} to default value : 8081
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved artifactory.tomcat.connector.maxThreads (200) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:797      ] [main] - Resolved ${artifactory.tomcat.connector.maxThreads||200} to default value : 200
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved artifactory.tomcat.connector.extraConfig (acceptCount="100") from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:797      ] [main] - Resolved ${artifactory.tomcat.maintenanceConnector.port||8091} to default value : 8091
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:797      ] [main] - Resolved ${artifactory.tomcat.maintenanceConnector.maxThreads||5} to default value : 5
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:797      ] [main] - Resolved ${artifactory.tomcat.maintenanceConnector.acceptCount||5} to default value : 5
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:797      ] [main] - Resolved ${access.http.port||8040} to default value : 8040
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved access.tomcat.connector.maxThreads (300) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved access.tomcat.connector.extraConfig (acceptCount="100") from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:43.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved JF_PRODUCT_HOME (/opt/jfrog/artifactory) from environment variable
+2020-12-07T15:25:44.000Z [shell] [38;5;69m[INFO ][0m [] [artifactoryCommon.sh:797      ] [main] - Resolved ${shared.tomcat.workDir||/opt/jfrog/artifactory/var/work/artifactory/tomcat} to default value : /opt/jfrog/artifactory/var/work/artifactory/tomcat
+
+========================
+JF Environment variables
+========================
+
+JF_SHARED_NODE_NAME                 : artifactory-artifactory-0
+JF_SYSTEM_YAML                      : /opt/jfrog/artifactory/var/etc/system.yaml
+JF_ARTIFACTORY_PID                  : /opt/jfrog/artifactory/app/run/artifactory.pid
+JF_SHARED_DATABASE_PASSWORD         : ******
+JF_SHARED_EXTRAJAVAOPTS             : -Dartifactory.access.client.max.connections=300
+-Dartifactory.async.corePoolSize    : 8
+JF_PRODUCT_DATA_INTERNAL            : /var/opt/jfrog/artifactory
+JF_PRODUCT_HOME                     : /opt/jfrog/artifactory
+JF_ROUTER_TOPOLOGY_LOCAL_REQUIREDSERVICETYPES : jfrt,jfac,jfmd,jffe,jfevt
+JF_SHARED_NODE_IP                   : 100.96.1.132
+JF_SHARED_NODE_ID                   : artifactory-artifactory-0
+JF_ARTIFACTORY_USER                 : artifactory
+Starting router...
+router not running. Proceed to start it up.
+router started. PID: 4291
+Starting metadata...
+2020-12-07T15:25:44.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.logging.consoleLog.enabled (false) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:44.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:877        ] [main] - Redirection is set to false. Skipping log redirection
+2020-12-07T15:25:44.488Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [bootstrap.go:72               ] [main                ] - Router (jfrou) service initialization started. Version: 7.11.5-1 Revision: 1c3daa2ab75898c0a9f33074aaaff242998e069a PID: 4291 Home: /opt/jfrog/artifactory
+2020-12-07T15:25:44.490Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [bootstrap.go:75               ] [main                ] - JFrog Router IP: 100.96.1.132
+JF_METADATA_ACCESSCLIENT_URL: http://localhost:8081/access
+metadata started. PID: 4476
+[DEBUG] Resolved system configuration file path: /opt/jfrog/artifactory/var/etc/system.yaml
+[TRACE] Config key not set for aws secret (metadata.database.secretsManagerAlias)
+2020-12-07T15:25:44.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.logging.consoleLog.enabled (false) from /opt/jfrog/artifactory/var/etc/system.yaml
+Starting event...
+event not running. Proceed to start it up.
+2020-12-07T15:25:44.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:877        ] [main] - Redirection is set to false. Skipping log redirection
+event started. PID: 4644
+[INFO ] JFrog Event (jfevt) service initialization started. Version: 7.11.5 (revision: 1c3daa2ab7, build date: 2020-11-29T16:59:05Z) PID: 4644 Home: /opt/jfrog/artifactory
+[DEBUG] Resolved system configuration file path: /opt/jfrog/artifactory/var/etc/system.yaml
+Starting frontend...
+frontend not running. Proceed to start it up.
+2020-12-07T15:25:44.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.logging.consoleLog.enabled (false) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:44.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:877        ] [main] - Redirection is set to false. Skipping log redirection
+frontend started. PID: 4795
+2020-12-07T15:25:44.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.logging.consoleLog.enabled (false) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:45.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:1145       ] [main] - Redirection is set to false. Skipping catalina log redirection
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+2020-12-07T15:25:45.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:877        ] [main] - Redirection is set to false. Skipping log redirection
+2020-12-07T15:25:45.000Z [shell] [38;5;69m[INFO ][0m [] [systemYamlHelper.sh:512       ] [main] - Resolved shared.logging.consoleLog.enabled (false) from /opt/jfrog/artifactory/var/etc/system.yaml
+2020-12-07T15:25:45.000Z [shell] [38;5;69m[INFO ][0m [] [installerCommon.sh:877        ] [main] - Redirection is set to false. Skipping log redirection
+2020-12-07T15:25:46.801L [35m[tomct][0m [INFO ] [                ] [org.apache.coyote.http11.Http11NioProtocol] [org.apache.coyote.AbstractProtocol init] - Initializing ProtocolHandler ["http-nio-8081"] 
+2020-12-07T15:25:46.855L [35m[tomct][0m [INFO ] [                ] [org.apache.tomcat.util.net.NioSelectorPool] [org.apache.tomcat.util.net.NioSelectorPool getSharedSelector] - Using a shared selector for servlet write/read 
+2020-12-07T15:25:46.927L [35m[tomct][0m [INFO ] [                ] [org.apache.coyote.http11.Http11NioProtocol] [org.apache.coyote.AbstractProtocol init] - Initializing ProtocolHandler ["http-nio-127.0.0.1-8091"] 
+2020-12-07T15:25:46.936L [35m[tomct][0m [INFO ] [                ] [org.apache.tomcat.util.net.NioSelectorPool] [org.apache.tomcat.util.net.NioSelectorPool getSharedSelector] - Using a shared selector for servlet write/read 
+2020-12-07T15:25:46.944L [35m[tomct][0m [INFO ] [                ] [org.apache.coyote.http11.Http11NioProtocol] [org.apache.coyote.AbstractProtocol init] - Initializing ProtocolHandler ["http-nio-127.0.0.1-8040"] 
+2020-12-07T15:25:46.952L [35m[tomct][0m [INFO ] [                ] [org.apache.tomcat.util.net.NioSelectorPool] [org.apache.tomcat.util.net.NioSelectorPool getSharedSelector] - Using a shared selector for servlet write/read 
+2020-12-07T15:25:47.001L [35m[tomct][0m [INFO ] [                ] [org.apache.catalina.core.StandardService] [org.apache.catalina.core.StandardService startInternal] - Starting service [Catalina] 
+2020-12-07T15:25:47.009L [35m[tomct][0m [INFO ] [                ] [org.apache.catalina.core.StandardEngine] [org.apache.catalina.core.StandardEngine startInternal] - Starting Servlet Engine: Apache Tomcat/8.5.57 
+2020-12-07T15:25:47.097L [35m[tomct][0m [INFO ] [                ] [org.apache.catalina.startup.HostConfig] [org.apache.catalina.startup.HostConfig deployDescriptor] - Deploying deployment descriptor [/opt/jfrog/artifactory/app/artifactory/tomcat/conf/Catalina/localhost/access.xml] 
+2020-12-07T15:25:47.097L [35m[tomct][0m [INFO ] [                ] [org.apache.catalina.startup.HostConfig] [org.apache.catalina.startup.HostConfig deployDescriptor] - Deploying deployment descriptor [/opt/jfrog/artifactory/app/artifactory/tomcat/conf/Catalina/localhost/artifactory.xml] 
+2020-12-07T15:25:47.173L [35m[tomct][0m [WARNING] [                ] [org.apache.catalina.startup.HostConfig] [org.apache.catalina.startup.HostConfig deployDescriptor] - A docBase [/opt/jfrog/artifactory/app/artifactory/tomcat/webapps/artifactory.war] inside the host appBase has been specified, and will be ignored 
+2020-12-07T15:25:47.173L [35m[tomct][0m [WARNING] [                ] [org.apache.catalina.startup.HostConfig] [org.apache.catalina.startup.HostConfig deployDescriptor] - A docBase [/opt/jfrog/artifactory/app/artifactory/tomcat/webapps/access.war] inside the host appBase has been specified, and will be ignored 
+2020-12-07T15:25:49.495Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 5 seconds with 2m0s timeout
+2020-12-07T15:25:49.604Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 5 seconds with 2m0s timeout [init]
+2020-12-07T15:25:49.791Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 5 seconds with 2m0s timeout [startup]
+2020-12-07T15:25:53.687Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [o.a.c.h.HaNodeProperties:65   ] [ocalhost-startStop-2] - Artifactory is running in non-clustered mode.
+2020-12-07T15:25:53.767Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [tifactoryHomeConfigListener:70] [ocalhost-startStop-2] - Resolved Home: '/opt/jfrog/artifactory
+2020-12-07T15:25:54.496Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 10 seconds with 2m0s timeout
+2020-12-07T15:25:54.552Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [o.j.c.w.FileWatcher:147       ] [Thread-6            ] - Starting watch of folder configurations
+2020-12-07T15:25:54.616Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 10 seconds with 2m0s timeout [init]
+2020-12-07 15:25:54.662  WARN 4965 --- [kground-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-07T15:25:54.796Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 10 seconds with 2m0s timeout [startup]
+2020-12-07T15:25:55.339Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [licationContextInitializer:162] [ocalhost-startStop-1] - Access (jfac) service initialization started. Version: 7.11.5 Revision: dev PID: 4965 Home: /opt/jfrog/artifactory
+2020-12-07T15:25:55.468Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [o.j.a.AccessApplication:50    ] [ocalhost-startStop-1] - Starting AccessApplication v7.11.5 on artifactory-artifactory-0 with PID 4965 (/opt/jfrog/artifactory/app/artifactory/tomcat/webapps/access/WEB-INF/lib/access-application-7.11.5.jar started by artifactory in /var/opt/jfrog/artifactory)
+2020-12-07T15:25:55.469Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [o.j.a.AccessApplication:652   ] [ocalhost-startStop-1] - The following profiles are active: production
+2020-12-07T15:25:55.572Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [.BasicConfigurationManager:186] [ocalhost-startStop-2] - Artifactory (jfrt) service initialization started. Version: 7.11.5 Revision: 71105900 PID: 4965 Home: /opt/jfrog/artifactory
+2020-12-07T15:25:55.654Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - frontend (jffe) service initialization started. Version: 1.11.5 Revision: 10000005 PID: 5068 Home: /opt/jfrog/artifactory
+2020-12-07T15:25:55.659Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - attempting pinging artifactory for 180 retires and 1.0s interval for total of 3 minutes
+2020-12-07T15:25:56.461Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [d.c.m.ConverterManagerImpl:212] [ocalhost-startStop-2] - Triggering PRE_INIT conversion, from 7.11.5 to 7.11.5
+2020-12-07T15:25:56.475Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [d.c.m.ConverterManagerImpl:215] [ocalhost-startStop-2] - Finished PRE_INIT conversion, current version is: 7.11.5
+2020-12-07T15:25:56.479Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [d.i.DbInitializationManager:47] [ocalhost-startStop-2] - Initializing DB Schema initialization manager
+2020-12-07T15:25:56.495Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [.i.DbInitializationManager:175] [ocalhost-startStop-2] - Database: PostgreSQL 12.3. Driver: PostgreSQL JDBC Driver 42.2.12 Pool: postgresql
+2020-12-07T15:25:56.501Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [.i.DbInitializationManager:178] [ocalhost-startStop-2] - Connection URL: jdbc:postgresql://artifactory-postgresql:5432/artifactory
+2020-12-07T15:25:57.294Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [d.i.DbInitializationManager:51] [ocalhost-startStop-2] - DB Schema initialization manager initialized
+2020-12-07T15:25:57.311Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [SchemaInitializationManager:48] [ocalhost-startStop-2] - Initializing Post-DB initialization manager
+2020-12-07T15:25:57.386Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [.c.ConfigurationManagerImpl:97] [ocalhost-startStop-2] - Starting file sync
+2020-12-07T15:25:57.438Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [o.j.c.ConfigWrapperImpl:342   ] [ocalhost-startStop-2] - [Node ID: artifactory-artifactory-0]  detected local  modify for config 'artifactory/config/binarystore.xml'
+2020-12-07T15:25:57.768Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [9a605da141763b4c] [SchemaInitializationManager:51] [ocalhost-startStop-2] - Post-DB initialization manager initialized
+2020-12-07T15:25:58.799Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [ctoryContextConfigListener:325] [art-init            ] - 
+                _   _  __           _                     _____
+     /\        | | (_)/ _|         | |                   |  __ \
+    /  \   _ __| |_ _| |_ __ _  ___| |_ ___  _ __ _   _  | |__) | __ ___
+   / /\ \ | '__| __| |  _/ _` |/ __| __/ _ \| '__| | | | |  ___/ '__/ _ \
+  / ____ \| |  | |_| | || (_| | (__| || (_) | |  | |_| | | |   | | | (_) |
+ /_/    \_\_|   \__|_|_| \__,_|\___|\__\___/|_|   \__, | |_|   |_|  \___/
+ Version:  7.11.5                                  __/ |
+ Revision: 71105900                               |___/
+ Artifactory Home: '/opt/jfrog/artifactory'
+ Node ID: 'artifactory-artifactory-0'
+
+2020-12-07T15:25:58.927L [35m[tomct][0m [INFO ] [                ] [org.apache.catalina.startup.HostConfig] [org.apache.catalina.startup.HostConfig deployDescriptor] - Deployment of deployment descriptor [/opt/jfrog/artifactory/app/artifactory/tomcat/conf/Catalina/localhost/artifactory.xml] has finished in [11,823] ms 
+2020-12-07T15:25:59.162Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [ifactoryApplicationContext:560] [art-init            ] - Artifactory application context set to NOT READY by refresh
+2020-12-07T15:25:59.498Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 15 seconds with 2m0s timeout
+2020-12-07T15:25:59.617Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 15 seconds with 2m0s timeout [init]
+2020-12-07T15:25:59.797Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 15 seconds with 2m0s timeout [startup]
+2020-12-07T15:26:03.935Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [s.d.u.AccessJdbcHelperImpl:140] [ocalhost-startStop-1] - Database: PostgreSQL 12.3. Driver: PostgreSQL JDBC Driver 42.2.12
+2020-12-07T15:26:03.959Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [s.d.u.AccessJdbcHelperImpl:143] [ocalhost-startStop-1] - Connection URL: jdbc:postgresql://artifactory-postgresql:5432/artifactory
+2020-12-07T15:26:04.499Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 20 seconds with 2m0s timeout
+2020-12-07T15:26:04.624Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 20 seconds with 2m0s timeout [init]
+2020-12-07T15:26:04.728Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - pinging artifactory, attempt number 10
+2020-12-07T15:26:04.730Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - pinging artifactory attempt number 10 failed with code : ECONNREFUSED
+2020-12-07T15:26:04.799Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 20 seconds with 2m0s timeout [startup]
+2020-12-07T15:26:06.146Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [alConfigurationServiceBase:182] [ocalhost-startStop-1] - Loading configuration from db finished successfully
+2020-12-07T15:26:06.652Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [alConfigurationServiceBase:111] [ocalhost-startStop-1] - Current configurations are the same as the new configurations, no need for an update. No action was taken.
+2020-12-07T15:26:06.664Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [alConfigurationServiceBase:115] [ocalhost-startStop-1] - Loading from Patch file /opt/jfrog/artifactory/var/etc/access/access.config.patch.yml finished successfully
+2020-12-07T15:26:06.697Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [alConfigurationServiceBase:114] [ocalhost-startStop-1] - Current configurations are the same as the new configurations, no need for an update. No action was taken.
+2020-12-07T15:26:07.371Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [.h.AccessNodeIdProviderImpl:73] [ocalhost-startStop-1] - Service id initialized: jfac@01eryw9ndrq6a31w8kvng308w8
+2020-12-07T15:26:08.514Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [j.a.s.s.t.TokenServiceImpl:116] [ocalhost-startStop-1] - Scheduling task for revoking expired tokens using cron expression: 0 0 0/1 * * ?
+2020-12-07T15:26:09.500Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 25 seconds with 2m0s timeout
+2020-12-07T15:26:09.627Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 25 seconds with 2m0s timeout [init]
+2020-12-07T15:26:09.755Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [b.AccessServerBootstrapImpl:39] [ocalhost-startStop-1] - [ACCESS BOOTSTRAP] Starting JFrog Access bootstrap...
+2020-12-07T15:26:09.765Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [CertificateFileHandlerBase:121] [ocalhost-startStop-1] - [ACCESS BOOTSTRAP] Initializing root certificate.
+2020-12-07T15:26:09.800Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [security_keys.go:128          ] [main                ] - Cluster join: Join key is missing. Pending for 25 seconds with 2m0s timeout [startup]
+2020-12-07T15:26:11.063Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [CertificateFileHandlerBase:342] [ocalhost-startStop-1] - [ACCESS BOOTSTRAP] Saved new root certificate at: /opt/jfrog/artifactory/var/etc/access/keys/root.crt
+2020-12-07T15:26:11.083Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [CertificateFileHandlerBase:138] [ocalhost-startStop-1] - [ACCESS BOOTSTRAP] Finished initializing root certificate. Certificate source: DATABASE
+2020-12-07T15:26:11.088Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [CertificateFileHandlerBase:121] [ocalhost-startStop-1] - [ACCESS BOOTSTRAP] Initializing ca certificate.
+2020-12-07T15:26:11.394Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [CertificateFileHandlerBase:342] [ocalhost-startStop-1] - [ACCESS BOOTSTRAP] Saved new ca certificate at: /opt/jfrog/artifactory/var/etc/access/keys/ca.crt
+2020-12-07T15:26:11.406Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [CertificateFileHandlerBase:138] [ocalhost-startStop-1] - [ACCESS BOOTSTRAP] Finished initializing ca certificate. Certificate source: DATABASE
+2020-12-07T15:26:11.841Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [89e0070216bbf181] [b.AccessServerBootstrapImpl:47] [ocalhost-startStop-1] - [ACCESS BOOTSTRAP] JFrog Access bootstrap finished.
+2020-12-07T15:26:13.498Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [6aa37a19fb07c6fb] [a.c.RefreshableScheduledJob:53] [ocalhost-startStop-1] - Scheduling loadCertificates task to run every 30 seconds
+2020-12-07T15:26:13.535Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [6aa37a19fb07c6fb] [a.c.RefreshableScheduledJob:53] [ocalhost-startStop-1] - Scheduling federationCleanupService task to run every 1209600 seconds
+2020-12-07T15:26:13.550Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [a.c.RefreshableScheduledJob:53] [ocalhost-startStop-1] - Scheduling heartbeat task to run every 5 seconds
+2020-12-07T15:26:13.564Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [a.c.RefreshableScheduledJob:53] [ocalhost-startStop-1] - Scheduling staleTokenCleanup task to run every 3600 seconds
+2020-12-07T15:26:13.627Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [o.j.a.s.s.JoinKeyAccess:167   ] [ocalhost-startStop-1] - Cluster join: Join key loaded successfully (from: /opt/jfrog/artifactory/var/bootstrap/access/etc/security/join.key)
+2020-12-07T15:26:13.661Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [o.j.a.s.s.JoinKeyAccess:100   ] [ocalhost-startStop-1] - Cluster join: Removing bootstrap join key file: /opt/jfrog/artifactory/var/bootstrap/access/etc/security/join.key
+2020-12-07T15:26:13.702Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [a.s.b.AccessServerRegistrar:62] [ocalhost-startStop-1] - [ACCESS BOOTSTRAP] Starting JFrog Access registrar...
+2020-12-07T15:26:14.317Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [o.j.a.s.r.s.GrpcServerImpl:65 ] [ocalhost-startStop-1] - Starting gRPC Server on port 8045
+2020-12-07T15:26:14.505Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [bootstrap.go:175              ] [main                ] - System configuration encryption report:
+shared.database.password: encrypted successfully
+shared.newrelic.licenseKey: does not exist in the config file
+shared.security.joinKeyFile: file '/opt/jfrog/artifactory/var/etc/security/join.key' - already encrypted
+2020-12-07T15:26:14.526Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [bootstrap.go:80               ] [main                ] - JFrog Router Service ID: jfrou@01erywywzqkdctyvvp65hcyg76
+2020-12-07T15:26:14.526Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [bootstrap.go:81               ] [main                ] - JFrog Router Node ID: artifactory-artifactory-0
+[DEBUG] Resolved system configuration file path: /opt/jfrog/artifactory/var/etc/system.yaml
+[DEBUG] Resolved system configuration file path: /opt/jfrog/artifactory/var/etc/system.yaml
+[DEBUG] Config file parameter metadata.logging.application.level is updated
+2020-12-07T15:26:14.634Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [postgres_jdbc_url_converter.go] [main                ] - No ssl parameter found, falling back to sslmode=disable [database]
+2020-12-07T15:26:14.635Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [database_bearer.go:100        ] [main                ] - Connecting to (db config: {postgresql jdbc:postgresql://artifactory-postgresql:5432/artifactory}) [database]
+2020-12-07T15:26:14.704Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [http_client_holder.go:155     ] [main                ] - System cert pool contents were loaded as trusted CAs for TLS communication
+2020-12-07T15:26:14.735Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [migrator.go:60                ] [main                ] - Applying 44 migrations files [database]
+2020-12-07T15:26:14.773Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - pinging artifactory, attempt number 20
+2020-12-07T15:26:14.776Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - pinging artifactory attempt number 20 failed with code : ECONNREFUSED
+[DEBUG] Resolved system configuration file path: /opt/jfrog/artifactory/var/etc/system.yaml
+[DEBUG] Resolved system configuration file path: /opt/jfrog/artifactory/var/etc/system.yaml
+[DEBUG] Config file parameter event.logging.application.level is updated
+[INFO ] Configuration update detected
+[DEBUG] Running config update listener 'Configure Application Logger'
+[DEBUG] Setting logger with parameters: {Application:{Console:true FilePath:event-service.log Level:info Format:jftext Caller:false Rotation:{Compress:true MaxSizeMb:25 MaxAgeDays:365 MaxFiles:10} Packages:map[]} Metrics:{Console:false FilePath:event-metrics.log Rotation:{Compress:true MaxSizeMb:25 MaxAgeDays:365 MaxFiles:10}} Request:{Console:false FilePath:event-request.log Rotation:{Compress:true MaxSizeMb:25 MaxAgeDays:365 MaxFiles:10}}}
+[DEBUG] Successfully ran config update listener 'Configure Application Logger'
+2020-12-07T15:26:15.062Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [o.j.a.s.r.s.GrpcServerImpl:84 ] [ocalhost-startStop-1] - gRPC Server started, listening on 8045
+2020-12-07T15:26:15.265Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [application.go:61             ] [main                ] - Metadata (jfmd) service initialization started. Version: v7.11.5 Revision: 1c3daa2ab75 PID: 4476 Home: /opt/jfrog/artifactory/var [app_initializer]
+2020-12-07T15:26:15.288Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [server_bearer.go:156          ] [main                ] - Got service_id from datastore: jfmd@01erywa1f84qqgjgh6db52x0qm [ServerInit]
+2020-12-07T15:26:16.491Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [config_holder.go:107          ] [main                ] - Configuration update detected
+2020-12-07T15:26:17.818Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [access_thin_client.go:105     ] [main                ] - Cluster join: Retry 5: Service registry ping failed, will retry. Error: Error while trying to connect to local router at address 'http://localhost:8046/access/api/v1/system/ping': Get "http://localhost:8046/access/api/v1/system/ping": dial tcp 127.0.0.1:8046: connect: connection refused [startup]
+2020-12-07T15:26:18.848Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [o.j.a.AccessApplication:59    ] [ocalhost-startStop-1] - Started AccessApplication in 27.723138128 seconds (JVM running for 33.793)
+2020-12-07T15:26:18.906L [35m[tomct][0m [INFO ] [                ] [org.apache.catalina.startup.HostConfig] [org.apache.catalina.startup.HostConfig deployDescriptor] - Deployment of deployment descriptor [/opt/jfrog/artifactory/app/artifactory/tomcat/conf/Catalina/localhost/access.xml] has finished in [31,809] ms 
+2020-12-07T15:26:18.917L [35m[tomct][0m [INFO ] [                ] [org.apache.catalina.startup.HostConfig] [org.apache.catalina.startup.HostConfig deployDirectory] - Deploying web application directory [/opt/jfrog/artifactory/app/artifactory/tomcat/webapps/ROOT] 
+2020-12-07T15:26:18.948Z [1;33m[jfac ][0;39m [31m[WARN ][0;39m [d91a92d1595a390f] [o.j.c.ExecutionUtils:142      ] [pool-20-thread-2    ] - Retry 10 Elapsed 5.22 secs failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2020-12-07T15:26:18.975L [35m[tomct][0m [INFO ] [                ] [org.apache.catalina.startup.HostConfig] [org.apache.catalina.startup.HostConfig deployDirectory] - Deployment of web application directory [/opt/jfrog/artifactory/app/artifactory/tomcat/webapps/ROOT] has finished in [58] ms 
+2020-12-07T15:26:19.015L [35m[tomct][0m [INFO ] [                ] [org.apache.coyote.http11.Http11NioProtocol] [org.apache.coyote.AbstractProtocol start] - Starting ProtocolHandler ["http-nio-8081"] 
+2020-12-07T15:26:19.120L [35m[tomct][0m [INFO ] [                ] [org.apache.coyote.http11.Http11NioProtocol] [org.apache.coyote.AbstractProtocol start] - Starting ProtocolHandler ["http-nio-127.0.0.1-8091"] 
+2020-12-07T15:26:19.184L [35m[tomct][0m [INFO ] [                ] [org.apache.coyote.http11.Http11NioProtocol] [org.apache.coyote.AbstractProtocol start] - Starting ProtocolHandler ["http-nio-127.0.0.1-8040"] 
+2020-12-07T15:26:19.322Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [accessclient.go:55            ] [main                ] - Cluster join: Retry 5: Service registry ping failed, will retry. Error: Error while trying to connect to local router at address 'http://localhost:8046/access': Get "http://localhost:8046/access/api/v1/system/ping": dial tcp 127.0.0.1:8046: connect: connection refused [access_client]
+2020-12-07T15:26:20.962Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [ritiesStorageServiceFactory:25] [art-init            ] - Initializing DB-based Priorities Storage Service
+2020-12-07T15:26:21.945Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [join_executor.go:118          ] [main                ] - Cluster join: Trying to rejoin the cluster
+2020-12-07T15:26:22.760Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1622beca4af841bc] [a.c.RefreshableScheduledJob:53] [27.0.0.1-8040-exec-1] - Scheduling federationCleanupService task to run every 1209600 seconds
+2020-12-07T15:26:22.766Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [eafd8e42255ec5c5] [.f.FederationCleanupService:59] [jf-access-task1     ] - Running clean up of outdated Federation events
+2020-12-07T15:26:22.825Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [access_thin_client.go:105     ] [main                ] - Cluster join: Retry 10: Service registry ping failed, will retry. Error: Error while trying to connect to local router at address 'http://localhost:8046/access/api/v1/system/ping': Get "http://localhost:8046/access/api/v1/system/ping": dial tcp 127.0.0.1:8046: connect: connection refused [startup]
+2020-12-07T15:26:23.116Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1622beca4af841bc] [s.r.NodeRegistryServiceImpl:68] [27.0.0.1-8040-exec-1] - Cluster join: Successfully joined jfrou@01erywywzqkdctyvvp65hcyg76 with node id artifactory-artifactory-0
+2020-12-07T15:26:23.756Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [join_executor.go:197          ] [main                ] - Cluster join: Successfully joined the cluster
+2020-12-07T15:26:23.975Z [1;33m[jfac ][0;39m [31m[WARN ][0;39m [d91a92d1595a390f] [o.j.c.ExecutionUtils:142      ] [pool-20-thread-2    ] - Retry 20 Elapsed 10.25 secs failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2020-12-07T15:26:24.270Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [http_client_holder.go:155     ] [main                ] - System cert pool contents were loaded as trusted CAs for TLS communication
+2020-12-07T15:26:24.272Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [http_client_holder.go:175     ] [main                ] - Following certificates were successfully loaded as trusted CAs for TLS communication:
+[/opt/jfrog/artifactory/var/data/router/keys/trusted/access-root-ca.crt]
+2020-12-07T15:26:24.294Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server.go:577                 ] [main                ] - Preparing server api &{Address:localhost:8049 TLS:<nil> Redirect:<nil> Auth:<nil> WhitelistSourceRange:[] WhiteList:<nil> Compress:false ProxyProtocol:<nil> ForwardedHeaders:0xc0001e6bc0} with readTimeout=0s writeTimeout=0s idleTimeout=3m0s
+2020-12-07T15:26:24.303Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server.go:577                 ] [main                ] - Preparing server external &{Address::8082 TLS:<nil> Redirect:<nil> Auth:<nil> WhitelistSourceRange:[] WhiteList:<nil> Compress:false ProxyProtocol:<nil> ForwardedHeaders:0xc0001e6c00} with readTimeout=0s writeTimeout=0s idleTimeout=3m0s
+2020-12-07T15:26:24.304Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server.go:577                 ] [main                ] - Preparing server internal &{Address:localhost:8046 TLS:<nil> Redirect:<nil> Auth:<nil> WhitelistSourceRange:[] WhiteList:<nil> Compress:false ProxyProtocol:<nil> ForwardedHeaders:0xc0001e6ba0} with readTimeout=0s writeTimeout=0s idleTimeout=3m0s
+2020-12-07T15:26:24.304Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server.go:423                 ] [main                ] - Starting provider configuration.ProviderAggregator {}
+2020-12-07T15:26:24.304Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server.go:533                 ] [main                ] - Starting server on localhost:8049
+2020-12-07T15:26:24.304Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server.go:533                 ] [main                ] - Starting server on :8082
+2020-12-07T15:26:24.304Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server.go:533                 ] [main                ] - Starting server on localhost:8046
+2020-12-07T15:26:24.304Z [36m[jfrou][0m [34m[INFO ][0m [                ] [provider_aggregator.go:103    ] [main                ] - Starting provider *file.Provider {"Watch":true,"Filename":"","Constraints":null,"Trace":false,"TemplateVersion":0,"DebugLogGeneratedTemplate":false,"Directory":"/opt/jfrog/artifactory/var/data/router/traefik/routes","TraefikFile":""}
+2020-12-07T15:26:24.317Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8046
+2020-12-07T15:26:24.317Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8049
+2020-12-07T15:26:24.317Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on :8082
+2020-12-07T15:26:24.317Z [36m[jfrou][0m [34m[INFO ][0m [93da8c2716e4bf  ] [main.go:47                    ] [main                ] - Router (jfrou) service initialization completed in 39.886 seconds. Listening on port: 8082
+2020-12-07T15:26:24.330Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [accessclient.go:55            ] [main                ] - Cluster join: Retry 10: Service registry ping failed, will retry. Error: Error while trying to connect to local router at address 'http://localhost:8046/access': Failed to access :http://localhost:8046/access/api/v1/system/ping return status code : 404 [access_client]
+2020-12-07T15:26:24.568Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:465   ] [main                ] - Skipping same configuration for provider file
+2020-12-07T15:26:24.806Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - pinging artifactory, attempt number 30
+2020-12-07T15:26:24.816Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - pinging artifactory attempt number 30 failed with code : undefined
+2020-12-07T15:26:26.155Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [HaRoleManagerServiceFactory:24] [art-init            ] - Initializing Primary-based HA role manager
+2020-12-07T15:26:26.317Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8049
+2020-12-07T15:26:26.317Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on :8082
+2020-12-07T15:26:26.317Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8046
+2020-12-07T15:26:26.972Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [actorySchedulerFactoryBean:727] [art-init            ] - Starting Quartz Scheduler now
+2020-12-07T15:26:27.058Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [ifactoryApplicationContext:281] [art-init            ] - Artifactory context starting up 64 Spring Beans...
+2020-12-07T15:26:27.758Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [.AccessWithRouterRegistrar:111] [pool-20-thread-1    ] - Access Server successfully registered on Router on URL: http://localhost:8046
+2020-12-07T15:26:27.841Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [access_thin_client.go:105     ] [main                ] - Cluster join: Retry 15: Service registry ping failed, will retry. Error: Failed to ping access, response status: 404 Not Found (returned 404) [startup]
+2020-12-07T15:26:28.206Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [o.a.s.a.AccessServiceImpl:461 ] [art-init            ] - Initialized new service id: jfrt@01erywab8sapnd1gafm7te0r08
+2020-12-07T15:26:28.293Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [oryAccessClientConfigStore:608] [art-init            ] - Using Access Server URL: http://localhost:8046/access source: System Config
+2020-12-07T15:26:28.317Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on :8082
+2020-12-07T15:26:28.318Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8046
+2020-12-07T15:26:28.318Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8049
+2020-12-07T15:26:28.540Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [5d695fcd4b46c6f5] [s.r.NodeRegistryServiceImpl:68] [27.0.0.1-8040-exec-4] - Cluster join: Successfully joined jfmd@01erywa1f84qqgjgh6db52x0qm with node id artifactory-artifactory-0
+2020-12-07T15:26:28.552Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [accessclient.go:55            ] [main                ] - Cluster join: Successfully joined the cluster [access_client]
+2020-12-07T15:26:28.552Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [accessclient.go:55            ] [main                ] - Executing Router register at: localhost:8046 [access_client]
+2020-12-07T15:26:28.626Z [34;1m[jfmd ][0m [34m[INFO ][0m [6f4ca27d11a4e26e] [router_middlewares.go:58      ] [main                ] - Metadata (jfmd) service initialization completed in 13.361 seconds. Listening on port: 8086 [router]
+2020-12-07T15:26:28.885Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [.s.b.AccessServerRegistrar:117] [pool-20-thread-1    ] - [ACCESS BOOTSTRAP] Updating server 'artifactory-artifactory-0' private key finger print to: 7fe08c965427f3b7ca908acf7f1d5d7047ee90f82637a8adf9154d83c5050537 ca private key finger print to: 40ddfc5231854db951625afc343b3dd93c2d90ab7564c9a3dd44ad3c13b9fef1
+2020-12-07T15:26:28.930Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [bootstrap.go:95               ] [main                ] - JFrog Event Service ID: jfevt@01eryw9ndrq6a31w8kvng308w8 [startup]
+2020-12-07T15:26:28.930Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [bootstrap.go:96               ] [main                ] - JFrog Event Node ID   : artifactory-artifactory-0 [startup]
+2020-12-07T15:26:28.930Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [bootstrap.go:97               ] [main                ] - JFrog Event Node IP   : 100.96.1.132 [startup]
+2020-12-07T15:26:28.936Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [d91a92d1595a390f] [a.s.b.AccessServerRegistrar:73] [pool-20-thread-1    ] - [ACCESS BOOTSTRAP] JFrog Access registrar finished.
+2020-12-07T15:26:29.111Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [8c249e3be716553 ] [s.r.NodeRegistryServiceImpl:68] [27.0.0.1-8040-exec-5] - Cluster join: Successfully joined jfevt@01eryw9ndrq6a31w8kvng308w8 with node id artifactory-artifactory-0
+2020-12-07T15:26:29.115Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [access_join.go:58             ] [main                ] - Cluster join: Successfully joined the cluster [application]
+2020-12-07T15:26:29.115Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [access_join.go:58             ] [main                ] - Executing Router register at: localhost:8046 [application]
+2020-12-07T15:26:29.138Z [36;1m[jfevt][0m [34m[INFO ][0m [687240e98585e2de] [application.go:149            ] [main                ] - JFrog Event (jfevt) service initialization completed in 44.373 seconds. HTTP server listening on 127.0.0.1:8061. GRPC server listening on 127.0.0.1:8062 [application]
+2020-12-07T15:26:29.309Z [36;1m[jfevt][0m [31m[WARN ][0m [687240e98585e2de] [base_url_cache.go:66          ] [main                ] - Base URL cache is not updated because of error: failed to fetch base URL from Artifactory (returned 404) [baseurl_cache]
+2020-12-07T15:26:29.310Z [36;1m[jfevt][0m [31m[WARN ][0m [687240e98585e2de] [proxy_synchronizer.go:21      ] [main                ] - Proxy cache is not updated because of error: failure to get the list of proxies from Artifactory (returned 404) [proxy_cache]
+2020-12-07T15:26:29.324Z [36;1m[jfevt][0m [31m[WARN ][0m [687240e98585e2de] [domain_client.go:57           ] [main                ] - Error occurred when refreshing domain cache all domain endpoint failed : Fetch domains from http://localhost:8046/artifactory/api/events/domains failed (returned 404), Fetch domains from http://localhost:8046/distribution/api/v1/events/domains failed (returned 404),  [domain_client]
+2020-12-07T15:26:29.808Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [3ee21963a8adca4a] [s.r.NodeRegistryServiceImpl:68] [27.0.0.1-8040-exec-9] - Cluster join: Successfully joined jfrt@01erywab8sapnd1gafm7te0r08 with node id artifactory-artifactory-0
+2020-12-07T15:26:29.862Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [.a.c.AccessClientBootstrap:163] [art-init            ] - Cluster join: Successfully joined the cluster
+2020-12-07T15:26:30.318Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8049
+2020-12-07T15:26:30.318Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on :8082
+2020-12-07T15:26:30.318Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8046
+2020-12-07T15:26:30.998Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [o.a.s.a.AccessServiceImpl:393 ] [art-init            ] - Initialized access service successfully with client id 144269970, closing old client id [null]
+2020-12-07T15:26:31.011Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [o.a.s.a.AccessServiceImpl:1321] [art-init            ] - Updating access configuration with password expiration data
+2020-12-07T15:26:31.662Z [1;32m[jfrt ][0;39m [31m[WARN ][0;39m [10335beecccd6b2f] [o.a.s.a.AccessServiceImpl:1551] [art-init            ] - Your Artifactory server is configured with the default admin credentials. It is highly recommended to change the default admin password. You can change the password from the User Management page.
+2020-12-07T15:26:31.724Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [.c.r.ReplicatorServiceImpl:112] [art-init            ] - initializing Replicator Service
+2020-12-07T15:26:31.729Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [.c.r.ReplicatorServiceImpl:332] [art-init            ] - Local Replicator is setting up in non-bundled mode
+2020-12-07T15:26:31.804Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [j.a.s.s.t.TokenServiceImpl:153] [27.0.0.1-8040-exec-4] - Revoked 5 expired tokens.
+2020-12-07T15:26:31.822Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting encryption...
+2020-12-07T15:26:31.843Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting federation_events...
+2020-12-07T15:26:31.850Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting groups...
+2020-12-07T15:26:31.864Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting federation_servers...
+2020-12-07T15:26:31.887Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting users...
+2020-12-07T15:26:31.904Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting platform_configurations...
+2020-12-07T15:26:31.910Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting permissions...
+2020-12-07T15:26:31.944Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting tokens...
+2020-12-07T15:26:31.948Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.d.TokenStorageServiceImpl:220] [27.0.0.1-8040-exec-4] - Filtered out 19 system tokens from export
+2020-12-07T15:26:31.948Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting config...
+2020-12-07T15:26:31.961Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [1267ec8d1e81946 ] [.AccessImporterExporterImpl:71] [27.0.0.1-8040-exec-4] - Exporting NodeIdServiceId...
+2020-12-07T15:26:32.318Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8046
+2020-12-07T15:26:32.318Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8049
+2020-12-07T15:26:32.324Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on :8082
+2020-12-07T15:26:33.412Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [tegrationCleanupServiceImpl:75] [art-init            ] - Using generated cron 0 17 0 ? * * for jobs table cleanup
+2020-12-07T15:26:33.612Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [ifactoryApplicationContext:560] [art-init            ] - Artifactory application context set to READY by refresh
+2020-12-07T15:26:33.698Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [.s.MetadataMigrationHelper:203] [art-init            ] - No repositories found that correspond to the supported Metadata Migration types. Supported types are [Alpine, SBT, Npm, Gems, CRAN, Puppet, CocoaPods, Conda, Composer, Go, Docker, Conan, Chef, Helm, Pypi, NuGet, Debian, Maven, Gradle, Bower, Ivy, YUM, Opkg, Vagrant]
+2020-12-07T15:26:33.713Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [.s.MetadataMigrationHelper:218] [art-init            ] - Updating existing migration status for 'metadata-service-migration' to finished
+2020-12-07T15:26:33.713Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [onStatusStorageServiceImpl:106] [art-init            ] - Migration for 'metadata-service-migration' has finished.
+2020-12-07T15:26:33.734Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [.w.NodeEventTaskManagerImpl:43] [art-init            ] - Event management started on behalf of Event Operator with ID 'metadata-operator-events'
+2020-12-07T15:26:33.759Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [o.a.m.f.MetricsServiceImpl:124] [art-init            ] - Metric Framework Service is enabled: false
+2020-12-07T15:26:33.777Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [o.a.s.s.StorageServiceImpl:532] [art-init            ] - Scheduling CalculateReposStorageSummaryJob to run at '0 32 * ? * *'
+2020-12-07T15:26:33.785Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [o.a.s.s.StorageServiceImpl:562] [art-init            ] - LogStorageStatusJob disabled and not scheduled to run
+2020-12-07T15:26:33.866Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [o.a.s.a.AccessServiceImpl:1627] [art-init            ] - Successful register of Artifactory serviceId jfrt@01erywab8sapnd1gafm7te0r08 in Access Federation
+2020-12-07T15:26:33.925Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [78a592517d42294f] [adsFolderCleanupServiceImpl:52] [art-exec-4          ] - Starting docker temp folder cleanup
+2020-12-07T15:26:33.943Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [78a592517d42294f] [adsFolderCleanupServiceImpl:54] [art-exec-4          ] - Docker temp folder cleanup finished, time took: 18 millis
+2020-12-07T15:26:33.978Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [10335beecccd6b2f] [ctoryContextConfigListener:266] [art-init            ] - Artifactory (jfrt) service initialization completed in 35.213 seconds. Listening on port: 8081
+2020-12-07T15:26:33.973Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [d.DatabaseConverterRunnable:37] [pool-41-thread-1    ] - Starting Async converter thread.
+2020-12-07T15:26:33.995Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [ncDBSqlConditionalConverter:33] [pool-41-thread-1    ] - Starting attempt #1 of async conversion for v225_change_nodes_node_name_idx
+2020-12-07T15:26:34.015Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [ncDBSqlConditionalConverter:35] [pool-41-thread-1    ] - Conversion of v225_change_nodes_node_name_idx finished successfully.
+2020-12-07T15:26:34.022Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [ncDBSqlConditionalConverter:33] [pool-41-thread-1    ] - Starting attempt #1 of async conversion for v225_change_nodes_node_path_idx
+2020-12-07T15:26:34.030Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [ncDBSqlConditionalConverter:35] [pool-41-thread-1    ] - Conversion of v225_change_nodes_node_path_idx finished successfully.
+2020-12-07T15:26:34.030Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [ncDBSqlConditionalConverter:33] [pool-41-thread-1    ] - Starting attempt #1 of async conversion for v225_change_nodes_node_repo_path_idx
+2020-12-07T15:26:34.037Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [ncDBSqlConditionalConverter:35] [pool-41-thread-1    ] - Conversion of v225_change_nodes_node_repo_path_idx finished successfully.
+2020-12-07T15:26:34.040Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [ncDBSqlConditionalConverter:33] [pool-41-thread-1    ] - Starting attempt #1 of async conversion for v225_add_bundle_files_node_id_index
+2020-12-07T15:26:34.090Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [ncDBSqlConditionalConverter:35] [pool-41-thread-1    ] - Conversion of v225_add_bundle_files_node_id_index finished successfully.
+2020-12-07T15:26:34.940Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - pinging artifactory, attempt number 40
+2020-12-07T15:26:34.992Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - pinging artifactory attempt number 40 failed with code : undefined
+2020-12-07T15:26:39.446Z [36;1m[jfevt][0m [31m[WARN ][0m [687240e98585e2de] [base_url_cache.go:66          ] [main                ] - Base URL cache is not updated because of error: failed to fetch base URL from Artifactory (returned 503) [baseurl_cache]
+2020-12-07T15:26:39.452Z [36;1m[jfevt][0m [31m[WARN ][0m [687240e98585e2de] [domain_client.go:57           ] [main                ] - Error occurred when refreshing domain cache all domain endpoint failed : Fetch domains from http://localhost:8046/distribution/api/v1/events/domains failed (returned 404), Fetch domains from http://localhost:8046/artifactory/api/events/domains failed (returned 503),  [domain_client]
+2020-12-07T15:26:39.464Z [36;1m[jfevt][0m [31m[WARN ][0m [687240e98585e2de] [proxy_synchronizer.go:21      ] [main                ] - Proxy cache is not updated because of error: failure to get the list of proxies from Artifactory (returned 503) [proxy_cache]
+2020-12-07T15:26:43.330Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - artifactory was pinged successfully
+2020-12-07T15:26:43.333Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - setting service id - jffe@000
+2020-12-07T15:26:43.433Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [3600b26ab77de77e] [s.r.NodeRegistryServiceImpl:68] [27.0.0.1-8040-exec-7] - Cluster join: Successfully joined jffe@000 with node id artifactory-artifactory-0
+2020-12-07T15:26:43.440Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - Cluster join: Successfully joined the cluster
+2020-12-07T15:26:43.510Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - UI service successfully registered on router, serviceId: jffe@000
+2020-12-07T15:26:43.527Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8046
+2020-12-07T15:26:43.530Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8049
+2020-12-07T15:26:43.530Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on :8082
+2020-12-07T15:26:44.071Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - initiating version update interval
+2020-12-07T15:26:44.075Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - Recurring tasks started
+2020-12-07T15:26:44.502Z [33m[jffe ][39m [34m[INFO ][39m [                ] [                              ] [main                ] - frontend (jffe) service initialization completed in 48.85 seconds. Listening on port: port 8070
+2020-12-07T15:26:49.864Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [                ] [o.j.c.ConfigWrapperImpl:342   ] [pool-11-thread-1    ] - [Node ID: artifactory-artifactory-0]  detected local  modify for config 'artifactory/config/security/access/access.admin.token'
+2020-12-07T15:26:54.345Z [36m[jfrou][0m [34m[INFO ][0m [66839baac57238d4] [local_topology.go:247         ] [main                ] - 
+###############################################################
+###   All services started successfully in 69.913 seconds   ###
+###############################################################
+2020-12-07T15:26:54.361Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on :8082
+2020-12-07T15:26:54.361Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8046
+2020-12-07T15:26:54.361Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8049
+2020-12-07T15:26:54.367Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [                ] [CertificateFileHandlerBase:187] [c-default-executor-0] - Loading ca certificate from database.
+2020-12-07T15:26:54.451Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [                ] [CertificateFileHandlerBase:342] [c-default-executor-0] - [ACCESS BOOTSTRAP] Saved new ca certificate at: /opt/jfrog/artifactory/var/etc/access/keys/ca.crt
+2020-12-07T15:26:54.462Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [                ] [CertificateFileHandlerBase:196] [c-default-executor-0] - Finished loading ca certificate from database.
+2020-12-07T15:26:54.465Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [                ] [CertificateFileHandlerBase:187] [c-default-executor-0] - Loading root certificate from database.
+2020-12-07T15:26:54.539Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [                ] [CertificateFileHandlerBase:342] [c-default-executor-0] - [ACCESS BOOTSTRAP] Saved new root certificate at: /opt/jfrog/artifactory/var/etc/access/keys/root.crt
+2020-12-07T15:26:54.549Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [                ] [CertificateFileHandlerBase:196] [c-default-executor-0] - Finished loading root certificate from database.
+2020-12-07T15:26:54.553Z [1;33m[jfac ][0;39m [34m[INFO ][0;39m [                ] [alConfigurationServiceBase:182] [c-default-executor-0] - Loading configuration from db finished successfully
+2020-12-07T15:26:57.362Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8046
+2020-12-07T15:26:57.362Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on localhost:8049
+2020-12-07T15:26:57.364Z [36m[jfrou][0m [34m[INFO ][0m [                ] [server_configuration.go:61    ] [main                ] - Server configuration reloaded on :8082
+2020-12-07T15:27:03.634Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [1b531f4519d1a856] [a.e.EventsLogCleanUpService:59] [art-exec-8          ] - Starting cleanup of old events from event log
+2020-12-07T15:27:03.641Z [1;32m[jfrt ][0;39m [34m[INFO ][0;39m [1b531f4519d1a856] [a.e.EventsLogCleanUpService:81] [art-exec-8          ] - Cleanup of old events from event log finished
